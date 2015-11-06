@@ -60,6 +60,7 @@ public class CouchbaseEventsActivity extends Activity {
             Map<String, Object> map = new HashMap<>();
             map.put("name", "Akash Chaturvedi");
             map.put("Age", 26);
+            
 
         } catch (IOException e) {
             Log.e(TAG, "Cannot create Manager instance", e);
