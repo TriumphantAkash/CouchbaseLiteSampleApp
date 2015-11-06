@@ -11,6 +11,9 @@ import com.couchbase.lite.ManagerOptions;
 import com.couchbase.lite.android.AndroidContext;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by achaturvedi on 11/5/2015.
@@ -44,7 +47,20 @@ public class CouchbaseEventsActivity extends Activity {
             //Manager's getDatabase method creates a database and returns its instance
             database = new Database(databaseName, manager);
 
-            //documents
+            //documents Karma
+
+            //creates a new document with random ID
+            Document document = database.createDocument();
+            Log.i(TAG, "generated document ID is: " + document.getId());
+
+            //create a new document wirh specified ID
+            Document idDocument = database.getDocument("axc144430@utdallas.edu");
+            Log.i(TAG, "generated document ID is: " + idDocument.getId());
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("name", "Akash Chaturvedi");
+            map.put("Age", 26);
+
         } catch (IOException e) {
             Log.e(TAG, "Cannot create Manager instance", e);
             return;
