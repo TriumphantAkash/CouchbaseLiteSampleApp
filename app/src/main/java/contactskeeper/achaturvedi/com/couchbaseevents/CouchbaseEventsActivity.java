@@ -60,7 +60,15 @@ public class CouchbaseEventsActivity extends Activity {
             Map<String, Object> map = new HashMap<>();
             map.put("name", "Akash Chaturvedi");
             map.put("Age", 26);
-            
+
+            try {
+                //save the properties to the document
+                //The data is now persisted to the database
+                idDocument.putProperties(map);
+                
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
 
         } catch (IOException e) {
             Log.e(TAG, "Cannot create Manager instance", e);
